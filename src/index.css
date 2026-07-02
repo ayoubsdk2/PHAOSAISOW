@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Phaos AI SOW design system - Dark theme with purple brand accents */
+
+@layer base {
+  :root {
+    /* Dark theme baseline (Phaos brand) */
+    --background: 240 18% 6%;
+    --foreground: 270 20% 96%;
+
+    --card: 240 16% 9%;
+    --card-foreground: 270 20% 96%;
+
+    --popover: 240 18% 8%;
+    --popover-foreground: 270 20% 96%;
+
+    --primary: 271 76% 60%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 280 90% 72%;
+    --brand-deep: 274 70% 47%;
+    --brand-deep-edge: 274 59% 33%;
+    --brand-deep-foreground: 0 0% 100%;
+
+    --secondary: 240 14% 14%;
+    --secondary-foreground: 270 20% 96%;
+
+    --muted: 240 12% 13%;
+    --muted-foreground: 260 10% 65%;
+
+    --accent: 271 76% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 75% 58%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 142 70% 45%;
+    --success-foreground: 0 0% 100%;
+
+    --border: 270 15% 18%;
+    --input: 240 14% 12%;
+    --ring: 271 76% 60%;
+
+    --radius: 0.65rem;
+
+    --header: 0 0% 0%;
+    --header-foreground: 0 0% 100%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(271 76% 60%), hsl(280 90% 72%));
+    --gradient-subtle: linear-gradient(180deg, hsl(240 18% 6%), hsl(240 18% 4%));
+    --shadow-glow: 0 0 40px -8px hsl(271 76% 60% / 0.5);
+    --shadow-elegant: 0 10px 30px -10px hsl(0 0% 0% / 0.6);
+    --shadow-brand-button: 0 20px 45px -18px hsl(274 70% 20% / 0.72);
+    --timeline-step-1: 0 0% 100%;
+    --timeline-step-2: 286 47% 97%;
+    --timeline-step-3: 283 50% 92%;
+    --timeline-step-4: 281 53% 84%;
+    --timeline-step-5: 278 58% 72%;
+    --timeline-step-6: 276 64% 60%;
+    --timeline-step-7: 274 70% 47%;
+    --timeline-step-light-foreground: 270 24% 13%;
+    --timeline-step-dark-foreground: 0 0% 100%;
+
+    --sidebar-background: 240 18% 6%;
+    --sidebar-foreground: 270 20% 96%;
+    --sidebar-primary: 271 76% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 14% 14%;
+    --sidebar-accent-foreground: 270 20% 96%;
+    --sidebar-border: 270 15% 18%;
+    --sidebar-ring: 271 76% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html, body, #root {
+    @apply bg-background text-foreground;
+    min-height: 100vh;
+  }
+
+  body {
+    background: var(--gradient-subtle);
+    font-feature-settings: "cv11", "ss01";
+  }
+}
+
+@layer components {
+  .question-card {
+    @apply bg-card border border-border rounded-xl p-5 transition-colors hover:border-primary/40;
+  }
+  .field-label {
+    @apply text-sm font-medium text-foreground/90;
+  }
+  .brand-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .timeline-launch-button {
+    @apply relative overflow-hidden rounded-md border px-5 py-2.5 text-sm md:text-base font-bold tracking-tight text-primary-foreground transition-all duration-200;
+    background: hsl(var(--brand-deep-edge));
+    border-color: hsl(var(--brand-deep-edge));
+    box-shadow: var(--shadow-brand-button);
+  }
+  .timeline-launch-button:hover {
+    background: hsl(var(--brand-deep));
+    transform: translateY(-1px);
+  }
+  .timeline-card .timeline-field {
+    @apply w-full shadow-none transition placeholder:font-normal focus-visible:ring-2 focus-visible:ring-offset-0;
+    color: inherit;
+  }
+  .timeline-card[data-tone="light"] .timeline-field {
+    background: hsl(var(--background) / 0.04);
+    border-color: hsl(var(--border) / 0.7);
+  }
+  .timeline-card[data-tone="light"] .timeline-field::placeholder {
+    color: hsl(var(--muted-foreground) / 0.9);
+  }
+  .timeline-card[data-tone="dark"] .timeline-field {
+    background: hsl(var(--primary-foreground) / 0.08);
+    border-color: hsl(var(--primary-foreground) / 0.18);
+  }
+  .timeline-card[data-tone="dark"] .timeline-field::placeholder {
+    color: hsl(var(--primary-foreground) / 0.72);
+  }
+}

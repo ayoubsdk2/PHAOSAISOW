@@ -1,0 +1,103 @@
+import { TimelineMilestone } from "@/types/sow";
+import { uid } from "@/lib/sow-utils";
+
+export const buildDefaultTimeline = (): TimelineMilestone[] => [
+  {
+    id: uid(),
+    phase: "Phase 1",
+    title: "Integration Kickoff & Secure Vaulting",
+    weeks: "Weeks 1–2",
+    dateRange: "4/17/2026 – 4/24/2026",
+    description: "Technical kickoff, API endpoint mapping, and secure vault setup.",
+    bullets: [
+      { owner: "Daniel", text: "Friday technical kickoff. Map API endpoints for SalesChain & e-automate. Set up production Supabase environment." },
+      { owner: "Shree", text: "Setup AWS Secrets Manager / Supabase Vault. Target: never hardcode a client API key." },
+      { owner: "Diego", text: "Create Golden Record test cases for a perfect lead and perfect service ticket." },
+    ],
+    assignees: [],
+  },
+  {
+    id: uid(),
+    phase: "Phase 2",
+    title: "SalesChain Revenue Bridge",
+    weeks: "Weeks 3–4",
+    dateRange: "4/27/2026 – 5/8/2026",
+    description: "Build the CRM integration, audit logs, and stress-test lead flow.",
+    bullets: [
+      { owner: "Daniel", text: "Build VAPI Tool calls for SalesChain. Inject lead data and activity logs from AI transcripts." },
+      { owner: "Shree", text: "Implement Integration Audit Log: encrypted record of every PhaosAI ↔ SalesChain exchange." },
+      { owner: "Diego", text: "CRM Stress Test: 20 mock leads, no duplicates, urgency flags map correctly." },
+    ],
+    assignees: [],
+  },
+  {
+    id: uid(),
+    phase: "Phase 3",
+    title: "e-automate Neural Link",
+    weeks: "Week 5",
+    dateRange: "5/11/2026 – 5/15/2026",
+    description: "Service dispatch wiring, ERP failover, and error-code validation.",
+    bullets: [
+      { owner: "Daniel", text: "Build verify_asset & create_service_ticket tool calls. Connect AI to e-automate dispatch." },
+      { owner: "Shree", text: "ERP Failover: switch to Note-Taking mode + alert supervisor if e-automate API drops." },
+      { owner: "Diego", text: "Error-Code Gauntlet: 10 Sharp/Lexmark codes verified for correct technician priority." },
+    ],
+    assignees: [],
+  },
+  {
+    id: uid(),
+    phase: "Phase 4",
+    title: "Ironclad Security & Redaction",
+    weeks: "Week 6",
+    dateRange: "5/18/2026 – 5/22/2026",
+    description: "PII/PHI redaction, encryption at rest, and least-privilege audits.",
+    bullets: [
+      { owner: "Daniel", text: "Wire Ironclad Compliance toggles to backend. Build regex filters for PII/PHI redaction." },
+      { owner: "Shree", text: "AES-256 encryption at rest for call recordings. Principle of Least Privilege audit." },
+      { owner: "Diego", text: "HIPAA Leak Test: feed SSNs / medical info, verify Scrubber removes before storage." },
+    ],
+    assignees: [],
+  },
+  {
+    id: uid(),
+    phase: "Phase 5",
+    title: "Telephony & Texas Infrastructure",
+    weeks: "Weeks 7–8",
+    dateRange: "5/25/2026 – 6/5/2026",
+    description: "DID porting, warm-transfer logic, and voice pipeline benchmarking.",
+    bullets: [
+      { owner: "Daniel", text: "Port SOA DID hotline to VAPI. Configure Warm Transfer for Texas branch extensions." },
+      { owner: "Shree", text: "Optimize Voice Pipeline. Target: end-to-end Silence-to-Speech under 500ms." },
+      { owner: "Diego", text: "Signal Quality Audit: heavy Texas accents, office noise, poor cellular reception." },
+    ],
+    assignees: [],
+  },
+  {
+    id: uid(),
+    phase: "Phase 6",
+    title: "Battle Week & UAT",
+    weeks: "Weeks 9–10",
+    dateRange: "6/8/2026 – 6/19/2026",
+    description: "Dispatch training, load testing, and sentiment-trigger validation.",
+    bullets: [
+      { owner: "Daniel", text: "Product training with SOA Texas dispatch. Finalize Global Dashboard v4.2.0." },
+      { owner: "Shree", text: "Load Testing: simulate 15 simultaneous inbound calls without throttling." },
+      { owner: "Diego", text: "Angry Customer Simulation: verify sentiment-based human transfer logic." },
+    ],
+    assignees: [],
+  },
+  {
+    id: uid(),
+    phase: "Phase 7",
+    title: "Deployment & Hypercare",
+    weeks: "Weeks 11–12",
+    dateRange: "6/22/2026 – 7/1/2026",
+    description: "Switch flip, real-time monitoring, and post-launch verification.",
+    bullets: [
+      { owner: "Daniel", text: "Lead the Switch Flip. Monitor Live Call table. Daily 15-min War Room standups." },
+      { owner: "Shree", text: "Real-time system health monitoring. Automated backups every 60 minutes." },
+      { owner: "Diego", text: "Post-Launch Verification: review every transcript for 48 hours, zero hallucinations." },
+    ],
+    assignees: [],
+  },
+];
