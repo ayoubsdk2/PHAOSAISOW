@@ -1,14 +1,14 @@
 import { supabase } from "@/integrations/supabase/client";
 import { ArchivedSOW, SOWState } from "@/types/sow";
 
-export const ADMIN_EMAIL = "daniel@phaosai.com";
-export const ADMIN_PASSWORD = "Evangelizor1981!";
+export const ADMIN_EMAIL = "seddayoub77@gmail.com";
+export const ADMIN_PASSWORD = "Ayoub123??";
 
 export async function isCurrentUserAdmin(): Promise<boolean> {
   const { data: { session } } = await supabase.auth.getSession();
   if (!session?.user) return false;
   if (session.user.email?.toLowerCase() !== ADMIN_EMAIL) return false;
-  try { await supabase.rpc("ensure_admin_for_daniel"); } catch {}
+  try { await supabase.rpc("ensure_admin_for_ayoub"); } catch {}
   const { data } = await supabase.rpc("is_admin");
   return Boolean(data);
 }
@@ -30,7 +30,7 @@ export async function adminLogin(email: string, password: string): Promise<void>
     const retry = await supabase.auth.signInWithPassword({ email: ADMIN_EMAIL, password: ADMIN_PASSWORD });
     if (retry.error) throw retry.error;
   }
-  try { await supabase.rpc("ensure_admin_for_daniel"); } catch {}
+  try { await supabase.rpc("ensure_admin_for_ayoub"); } catch {}
 }
 
 export async function adminLogout() {

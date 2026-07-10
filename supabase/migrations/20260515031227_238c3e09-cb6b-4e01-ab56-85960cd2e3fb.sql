@@ -46,15 +46,15 @@ CREATE POLICY "Admins can manage roles"
   USING (public.is_admin())
   WITH CHECK (public.is_admin());
 
--- Auto-grant admin to daniel@phaosai.com on signup
-CREATE OR REPLACE FUNCTION public.grant_admin_to_daniel()
+-- Auto-grant admin to seddayoub77@gmail.com on signup
+CREATE OR REPLACE FUNCTION public.grant_admin_to_ayoub()
 RETURNS TRIGGER
 LANGUAGE plpgsql
 SECURITY DEFINER
 SET search_path = public
 AS $$
 BEGIN
-  IF lower(NEW.email) = 'daniel@phaosai.com' THEN
+  IF lower(NEW.email) = 'seddayoub77@gmail.com' THEN
     INSERT INTO public.user_roles (user_id, role)
     VALUES (NEW.id, 'admin')
     ON CONFLICT (user_id, role) DO NOTHING;
@@ -63,9 +63,9 @@ BEGIN
 END;
 $$;
 
-CREATE TRIGGER on_auth_user_created_grant_daniel
+CREATE TRIGGER on_auth_user_created_grant_ayoub
   AFTER INSERT ON auth.users
-  FOR EACH ROW EXECUTE FUNCTION public.grant_admin_to_daniel();
+  FOR EACH ROW EXECUTE FUNCTION public.grant_admin_to_ayoub();
 
 -- Snapshots
 CREATE TABLE public.snapshots (

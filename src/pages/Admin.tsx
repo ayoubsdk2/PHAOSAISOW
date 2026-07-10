@@ -15,7 +15,7 @@ import { Badge } from "@/components/ui/badge";
 import { toast } from "sonner";
 import { ArrowLeft, LogOut, RefreshCcw, Search, Eye } from "lucide-react";
 
-const ADMIN_EMAIL = "daniel@phaosai.com";
+const ADMIN_EMAIL = "seddayoub77@gmail.com";
 
 type Snapshot = {
   id: string;
